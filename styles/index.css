@@ -1,9 +1,9 @@
 :root {
-    --bg_main: #264653;
+    --bg_main: #457b9d;
     --text_light: #fff;
     --text_med: #53627c;
-    --text_dark: #1e2432;
-    --red: #ff1e42;
+    --text_dark: black;
+    --red: #a8dadc;
     --darkred: #c3112d;
     --orange: #ff8c00;
 }
@@ -51,6 +51,7 @@ body {
     background: var(--bg_main);
     color: var(--text_dark);
     padding: 50px;
+    overflow-x: hidden; 
 }
 
 .container {
@@ -62,18 +63,94 @@ body {
 
 /* SECTION #1
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+#locationData {
+    margin-bottom: 5%;
+    list-style: none;
+}
+
+#locationData figcaption {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1.5rem;
+}
+
+#locationData sup {
+    font-size: 0.6em;
+}
+
+.location-temp {
+    font-size: 5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--text_dark);
+}
+
+#moreInfo {
+    list-style: none;
+    display: inline-flex;
+    position: absolute;
+    transform: translate(100%, -180%);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.humidity {
+    transform: translate(90%, -95%);
+    font-weight: bolder;
+}
+
+.windSpeed {
+    transform: translate(180%, -195%);
+    font-weight: bolder;
+}
+
+.cloudiness {
+    transform: translate(90%, -95%);
+    font-weight: bolder;
+}
+
+.pressure {
+    transform: translate(180%, -195%);
+    font-weight: bolder;
+}
+
+.sunset {
+    transform: translate(120%, -100%);
+    font-weight: bolder;
+}
+
+.feelsLike, .windDirection, .sunrise {
+    font-weight: bolder;
+}
+
+#butInstall {
+    background: url(/public/icons/install.svg) center center no-repeat;
+}
+
+/* SECTION #2
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .search {
     color: var(--text_light);
 }
 
 h1 {
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 1.5rem;
     letter-spacing: 0.02em;
     padding: 0 0 30px 0;
     text-align: center;
-    transform: translate(0%, 0%);
     color: white;
+}
+
+.fa-compass {
+    padding-right: 10px;
+}
+
+.current {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 35px;
 }
 
 .search form {
@@ -119,7 +196,7 @@ h1 {
     font-size: 1rem;
 }
 
-/* SECTION #2
+/* SECTION #3
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .results {
     margin: 70px 0 20px;
@@ -208,98 +285,63 @@ figcaption {
     cursor: pointer;
 }
 
-/* SECTION #3
+/* MEDIQ QUERIES
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* The Modal (background) */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+@media screen and (max-width: 1250px) {
+    #moreInfo {
+        position: relative;
+        margin-bottom: 40px;
+        line-height: 2em;
+        text-align: center;
+        transform: translate(35%, 0%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
+        transform: translate(0%, 0%);
+    }
+    #locationData {
+        display: flex;
+        justify-content: center;
+    }
+    .location-name, .location-temp {
+        text-align: center;
+    }
+    .location-icon {
+        transform: translate(70%, 0%);
+    }
 }
 
-/* Modal Content/Box */
-.modal-content {
-    display: flex;
-    background-color: #edf6f9;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    height: 80%;
-}
-
-/* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-}
-
-.more-info-temp {
-    margin-top: 40px;
-    font-size: larger;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.more-info {
-    font-size: larger;
-    line-height: 1.7em;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.information .city {
-    margin-top: -35%;
-    float: right;
-    position: relative;
-    padding: 40px 10%;
-    border-radius: 20px;
-    background: var(--text_light);
-    color: var(--text_med);
-}
-
-/* FOOTER
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.page-footer {
-    text-align: right;
-    font-size: 1rem;
-    color: var(--text_light);
-    margin-top: 40px;
-}
-
-.page-footer span {
-    color: var(--red);
-}
-
-
-/* MQ
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 1000px) {
     body {
         padding: 30px;
     }
-
     .results.cities {
         grid-template-columns: repeat(3, 1fr);
+    }
+    #moreInfo {
+        position: relative;
+        margin-bottom: 40px;
+        line-height: 2em;
+        text-align: center;
+        transform: translate(32%, 0%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
+        transform: translate(0%, 0%);
+    }
+    #locationData {
+        display: flex;
+        justify-content: center;
+    }
+    .location-name, .location-temp {
+        text-align: center;
+    }
+    .location-icon {
+        transform: translate(70%, 0%);
     }
 }
 
@@ -309,34 +351,60 @@ figcaption {
     .results .city-temp {
         font-size: 3rem;
     }
-
     .results {
         margin-top: 20px;
     }
-
     .search form {
         flex-direction: column;
         align-items: flex-start;
     }
-
     .search form input,
     .search form button {
         width: 100%;
     }
-
     .search form button {
         margin: 20px 0 0 0;
     }
-
     .search form .msg {
         position: static;
         max-width: none;
         min-height: 0;
         margin-top: 10px;
     }
-
     .results .cities {
         grid-template-columns: repeat(2, 1fr);
+    }
+    #moreInfo {
+        position: relative;
+        margin-bottom: 40px;
+        line-height: 2em;
+        text-align: center;
+        transform: translate(25%, 0%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
+        transform: translate(0%, 0%);
+    }
+    #locationData {
+        display: flex;
+        justify-content: center;
+    }
+    .location-name, .location-temp {
+        text-align: center;
+    }
+    .location-icon {
+        transform: translate(70%, 0%);
+    }
+}
+
+@media screen and (max-width: 590px) {
+    #moreInfo {
+        transform: translate(20%, 0%);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
@@ -344,35 +412,27 @@ figcaption {
     body {
         padding: 15px;
     }
-
     .results .cities {
         grid-template-columns: repeat(1, 1fr);
     }
-}
-
-@media screen and (max-width: 850px) {
-    .information .city {
-        display: none;
+    #moreInfo {
+        transform: translate(0%, 0%);
+        position: relative;
+        margin-bottom: 40px;
+        line-height: 2em;
+        text-align: center;
     }
-}
-
-@media screen and (min-width: 850px)
-and (max-width: 950px) {
-    .information .city {
-        margin-top: -56%;
+    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
+        transform: translate(0%, 0%);
     }
-}
-
-@media screen and (min-width: 951px)
-and (max-width: 1100px) {
-    .information .city {
-        margin-top: -47%;
+    #locationData {
+        display: flex;
+        justify-content: center;
     }
-}
-
-@media screen and (min-width: 1101px)
-and (max-width: 1300px) {
-    .information .city {
-        margin-top: -45%;
+    .location-name, .location-temp {
+        text-align: center;
+    }
+    .location-icon {
+        transform: translate(70%, 0%);
     }
 }
