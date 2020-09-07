@@ -20,14 +20,29 @@
     <meta name="theme-color" content="#2F3BA2" />
     <link rel="apple-touch-icon" href="/public/icons/icon-152x152.png">
     <link rel="manifest" href="/public/favicon_io/site.webmanifest">
+    <script src="https://kit.fontawesome.com/122e71b9ae.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <section class='search'>
+    <section id="myLocation">
         <div class='container'>
             <header>
-                <h1>Weather App</h1>
+                <h1 class="h1"></h1>
+                <p class='current'><i class="fas fa-compass 3x"></i>Current Location</p>
+                <button id="butInstall" aria-label="Install" hidden></button>
             </header>
+            <div > 
+                <ul id="locationData"></ul>
+            </div>
+            <div>
+                <ul id="moreInfo"></ul>
+            <div>
+
+        </div>
+    </section>
+
+    <section class='search'>
+        <div class='container'>
         </div>
         <form>
             <label for='myButton'>
@@ -44,18 +59,6 @@
         </div>
     </section>
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="container">
-                <ul class="information"></ul>
-            </div>
-        </div>
-    </div>
-
     <script>
         //Register service worker.
         if ('serviceWorker' in navigator) {
@@ -68,6 +71,8 @@
         }
     </script>
     <script src="scripts/index.js"></script>
+    <script src="scripts/install.js"></script>
+
 </body>
 
 </html>
