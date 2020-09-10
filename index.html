@@ -22,23 +22,26 @@
     <link rel="manifest" href="/public/favicon_io/site.webmanifest">
     <script src="https://kit.fontawesome.com/122e71b9ae.js" crossorigin="anonymous"></script>
 </head>
-
 <body>
     <section id="myLocation">
         <div class='container'>
             <header>
                 <h1 class="h1"></h1>
-                <p class='current'><i class="fas fa-compass 3x"></i>Current Location</p>
+                
                 <button id="butInstall" aria-label="Install" hidden></button>
             </header>
-            <div > 
-                <ul id="locationData"></ul>
-            </div>
-            <div>
-                <ul id="moreInfo"></ul>
-            <div>
+            <div id="box">
+                <p class='current'><i class="fas fa-compass 3x"></i>Current Location</p>
+                <div>
+                    <ul id="locationData"></ul>
+                </div>
+                <div>
+                    <ul id="moreInfo"></ul>
+                <div>
+                <div id="mapHolder">
 
-        </div>
+                </div>
+            </div>
     </section>
 
     <section class='search'>
@@ -72,7 +75,6 @@
     </script>
     <script src="scripts/index.js"></script>
     <script src="scripts/install.js"></script>
-
 </body>
 
 </html>
