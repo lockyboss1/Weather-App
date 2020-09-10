@@ -16,3 +16,5 @@ The Website uses localStorage in order to make the weather results
 persist on the page when a user reloads.
 
 The website is responsive on all screens.
+
+You can view it live [here](https://lockyboss1.github.io/Restaurant).

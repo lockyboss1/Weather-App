@@ -1,5 +1,5 @@
 :root {
-    --bg_main: #457b9d;
+    --bg_main: #38a3a5;
     --text_light: #fff;
     --text_med: #53627c;
     --text_dark: black;
@@ -63,76 +63,6 @@ body {
 
 /* SECTION #1
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-#locationData {
-    margin-bottom: 5%;
-    list-style: none;
-}
-
-#locationData figcaption {
-    margin-top: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 1.5rem;
-}
-
-#locationData sup {
-    font-size: 0.6em;
-}
-
-.location-temp {
-    font-size: 5rem;
-    font-weight: bold;
-    margin-top: 10px;
-    color: var(--text_dark);
-}
-
-#moreInfo {
-    list-style: none;
-    display: inline-flex;
-    position: absolute;
-    transform: translate(100%, -180%);
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.humidity {
-    transform: translate(90%, -95%);
-    font-weight: bolder;
-}
-
-.windSpeed {
-    transform: translate(180%, -195%);
-    font-weight: bolder;
-}
-
-.cloudiness {
-    transform: translate(90%, -95%);
-    font-weight: bolder;
-}
-
-.pressure {
-    transform: translate(180%, -195%);
-    font-weight: bolder;
-}
-
-.sunset {
-    transform: translate(120%, -100%);
-    font-weight: bolder;
-}
-
-.feelsLike, .windDirection, .sunrise {
-    font-weight: bolder;
-}
-
-#butInstall {
-    background: url(/public/icons/install.svg) center center no-repeat;
-}
-
-/* SECTION #2
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.search {
-    color: var(--text_light);
-}
-
 h1 {
     font-weight: bold;
     font-size: 1.5rem;
@@ -147,10 +77,82 @@ h1 {
 }
 
 .current {
-    text-align: center;
     color: white;
     font-size: 1.5rem;
-    margin-bottom: 35px;
+    transform: translate(210%, 0%);
+    margin-top: 10px;
+    position: absolute;
+}
+
+#box {
+    max-width: 100%;
+    display: flex;
+    height: 390px;
+    border: 3px solid grey;
+    background-color: #a3b18a;
+}
+
+#locationData {
+    position: absolute;
+    list-style: none;
+    transform: translate(55%, 30%);
+}
+
+#myLocation {
+    margin-bottom: 40px;
+}
+
+.location-icon {
+    transform: translate(20%, 0%);
+}
+
+#locationData figcaption {
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 1.4rem;
+    transform: translate(8%, 0%);
+}
+
+#locationData sup {
+    font-size: 0.4em;
+}
+
+.location-temp {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--text_dark);
+    transform: translate(13%, 0%);
+}
+
+#moreInfo {
+    list-style: none;
+    display: inline-flex;
+    position: absolute;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transform: translate(120%, 25%);
+    line-height: 1.9em;
+    position: absolute;
+}
+
+.location-name {
+    transform: translate(8%, 0%);
+}
+
+#mapHolder {
+    transform: translate(210%, 15%);
+    position: absolute;
+}
+
+#butInstall {
+    background: url(/public/icons/install.svg) center center no-repeat;
+}*/
+
+/* SECTION #2
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.search {
+    color: var(--text_light);
 }
 
 .search form {
@@ -288,28 +290,59 @@ figcaption {
 /* MEDIQ QUERIES
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 1250px) {
-    #moreInfo {
-        position: relative;
-        margin-bottom: 40px;
-        line-height: 2em;
-        text-align: center;
-        transform: translate(35%, 0%);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
-        transform: translate(0%, 0%);
+    .current {
+        transform: translate(20%, 0%);
     }
     #locationData {
-        display: flex;
-        justify-content: center;
-    }
-    .location-name, .location-temp {
-        text-align: center;
+        transform: translate(38%, 30%);
     }
     .location-icon {
-        transform: translate(70%, 0%);
+        transform: translate(25%, 0%);
+    }
+    #moreInfo {
+        transform: translate(110%, 25%);
+    }
+    #mapHolder {
+        transform: translate(190%, 15%);
+        position: absolute;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .current {
+        transform: translate(20%, 0%);
+    }
+    #locationData {
+        transform: translate(38%, 30%);
+    }
+    .location-icon {
+        transform: translate(25%, 0%);
+    }
+    #moreInfo {
+        transform: translate(110%, 25%);
+    }
+    #mapHolder {
+        transform: translate(230%, 30%);
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .current {
+        transform: translate(20%, 0%);
+    }
+    #locationData {
+        transform: translate(38%, 30%);
+    }
+    .location-icon {
+        transform: translate(25%, 0%);
+    }
+    #moreInfo {
+        transform: translate(90%, 25%);
+    }
+    #mapHolder {
+        transform: translate(245%, 50%);
+        width: 250px;
     }
 }
 
@@ -320,33 +353,21 @@ figcaption {
     .results.cities {
         grid-template-columns: repeat(3, 1fr);
     }
-    #moreInfo {
-        position: relative;
-        margin-bottom: 40px;
-        line-height: 2em;
-        text-align: center;
-        transform: translate(32%, 0%);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
-        transform: translate(0%, 0%);
+    .current {
+        transform: translate(20%, 0%);
     }
     #locationData {
-        display: flex;
-        justify-content: center;
-    }
-    .location-name, .location-temp {
-        text-align: center;
+        transform: translate(38%, 30%);
     }
     .location-icon {
-        transform: translate(70%, 0%);
+        transform: translate(25%, 0%);
+    }
+    #mapHolder {
+        display: none;
     }
 }
 
 @media screen and (max-width: 770px) {
-
     .heading,
     .results .city-temp {
         font-size: 3rem;
@@ -374,37 +395,26 @@ figcaption {
     .results .cities {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+
+@media screen and (max-width: 690px) {
     #moreInfo {
-        position: relative;
-        margin-bottom: 40px;
-        line-height: 2em;
-        text-align: center;
-        transform: translate(25%, 0%);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
-        transform: translate(0%, 0%);
+        transform: translate(70%, 30%);
     }
     #locationData {
-        display: flex;
-        justify-content: center;
+        transform: translate(8%, 30%);
     }
-    .location-name, .location-temp {
-        text-align: center;
-    }
-    .location-icon {
-        transform: translate(70%, 0%);
+    .current {
+        transform: translate(58%, 30%);
     }
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 620px) {
     #moreInfo {
-        transform: translate(20%, 0%);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        display: none;
+    }
+    #locationData {
+        transform: translate(98%, 30%);
     }
 }
 
@@ -415,24 +425,34 @@ figcaption {
     .results .cities {
         grid-template-columns: repeat(1, 1fr);
     }
-    #moreInfo {
-        transform: translate(0%, 0%);
-        position: relative;
-        margin-bottom: 40px;
-        line-height: 2em;
-        text-align: center;
+    #mapHolder {
+        display: none;
     }
-    .humidity, .windSpeed, .cloudiness, .pressure, .sunset {
-        transform: translate(0%, 0%);
+    .current {
+        transform: translate(20%, 0%);
     }
     #locationData {
-        display: flex;
-        justify-content: center;
-    }
-    .location-name, .location-temp {
-        text-align: center;
+        transform: translate(38%, 30%);
     }
     .location-icon {
-        transform: translate(70%, 0%);
+        transform: translate(25%, 0%);
+    }
+    #moreInfo {
+      display: none;
+    }
+    .city{
+        margin-bottom: 140px;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .search form input,
+    .search form button {
+        transform: translate(20%, 0%);
+    }
+    #box {
     }
 }

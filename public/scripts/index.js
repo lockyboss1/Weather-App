@@ -5,17 +5,12 @@ const cities = document.querySelector(".results .cities");
 const apiKey = "d9d1610fdb5a0a14f64e9add8173e17a";
 let p = document.getElementsByTagName('p');
 let city = document.querySelector('.city');
-let modal = document.getElementById("myModal");
-let span = document.getElementsByClassName("close")[0];
 let locationData = document.getElementById('locationData');
 let moreInfo = document.getElementById('moreInfo');
 let h1 = document.querySelector('.h1');
-let myLocation = document.getElementById('myLocation');
 let longitude;
 let latitude;
-let isCacheSupported = 'caches' in window;
-let cacheName = 'weatherForecast'; 
-
+let windDirection = document.querySelector('.windDirection');
 
 //gets the current date and time
 function getDate() {
@@ -56,7 +51,7 @@ function initCoords() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(currentLocation);
   } else {
-    //
+    //.innerHTML = "";
   }
 }
 initCoords();
@@ -64,7 +59,10 @@ initCoords();
 function currentLocation(position) {
   longitude = position.coords.longitude;
   latitude = position.coords.latitude;
+  var latlon = position.coords.latitude + "," + position.coords.longitude;
 
+  var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=360x300&sensor=false&key=AIzaSyALD9uk0vlUcepMIqgntkbcRDGjJVS8kS0";
+  document.getElementById("mapHolder").innerHTML = "<img src='"+img_url+"'>";
   const currentLocationData = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
   fetch(currentLocationData)
@@ -87,8 +85,7 @@ function currentLocation(position) {
         weather[0]["description"]
         }">
             <figcaption>${weather[0]["description"]}</figcaption>
-          </figure>
-        `;
+          </figure>`;
       li.innerHTML = markup;
       locationData.appendChild(li);
     })
@@ -192,15 +189,17 @@ form.addEventListener("submit", e => {
     });
 
   //delete weather result from site
-  for (var i = 0; i < p.length; i++) { // loop over them
-    p[i].addEventListener('click', function (e) {
-      console.log(i);
-      var city = document.querySelector('.city');
-      modal.style.display = "block";
-      //city.remove();
-      //localStorage.removeItem(i);
-    });
+  function removeWeatherResult() {
+    for (var i = 0; i < p.length; i++) { // loop over them
+      p[i].addEventListener('click', function (e) {
+        console.log(i);
+        //var city = document.querySelector('.city');
+        city.remove();
+        //localStorage.removeItem(i);
+      });
+    }
   }
+  removeWeatherResult();
 
   //localstorage function
   function saveLocationList(add_item) {
@@ -247,8 +246,11 @@ window.onload = function () {
       weatherdata.forEach(function () {
         const li = document.createElement("li");
         li.classList.add("city");
-        li.innerHTML += weatherdata;
+        cities.innerHTML = "";
+        li.innerHTML = weatherdata;
+        li.style.display = 'grid';
         cities.appendChild(li);
+        //removeWeatherResult();
       })
     } else { //if nothing exist in storage, keep array empty
       weatherdata = [];
