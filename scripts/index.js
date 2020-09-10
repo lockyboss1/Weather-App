@@ -10,7 +10,6 @@ let moreInfo = document.getElementById('moreInfo');
 let h1 = document.querySelector('.h1');
 let longitude;
 let latitude;
-let windDirection = document.querySelector('.windDirection');
 
 //gets the current date and time
 function getDate() {
@@ -150,7 +149,6 @@ form.addEventListener("submit", e => {
     }
   }
 
-
   //ajax here
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
 
@@ -181,7 +179,7 @@ form.addEventListener("submit", e => {
         </figure>
       `;
       li.innerHTML = markup;
-      saveLocationList(markup);
+      //saveLocationList(markup);
       cities.appendChild(li);
     })
     .catch(() => {
@@ -191,18 +189,18 @@ form.addEventListener("submit", e => {
   //delete weather result from site
   function removeWeatherResult() {
     for (var i = 0; i < p.length; i++) { // loop over them
-      p[i].addEventListener('click', function (e) {
+      p[i].onclick = function () {
         console.log(i);
-        //var city = document.querySelector('.city');
-        city.remove();
+        var city = document.querySelector('.city');
+        city.remove(i);
         //localStorage.removeItem(i);
-      });
+      };
     }
   }
   removeWeatherResult();
 
   //localstorage function
-  function saveLocationList(add_item) {
+  /*function saveLocationList(add_item) {
     // parse existing storage key or string representation of empty array
     var existingEntries = JSON.parse(localStorage.getItem("list_items") || '[]');
 
@@ -214,7 +212,7 @@ form.addEventListener("submit", e => {
       // or tell user it's already there
       console.log(add_item + ' already exists')
     }
-  }
+  }*/
 
   msg.textContent = "";
   form.reset();
@@ -238,7 +236,7 @@ form.addEventListener("submit", e => {
 });
 
 //Loads the list of saved location.
-window.onload = function () {
+/*window.onload = function () {
   for (var i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     let weatherdata = JSON.parse(localStorage.getItem(key));
@@ -256,5 +254,5 @@ window.onload = function () {
       weatherdata = [];
     }
   }
-}
+}*/
 
