@@ -22,12 +22,13 @@
     <link rel="manifest" href="/public/favicon_io/site.webmanifest">
     <script src="https://kit.fontawesome.com/122e71b9ae.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <section id="myLocation">
         <div class='container'>
             <header>
                 <h1 class="h1"></h1>
-                
+
                 <button id="butInstall" aria-label="Install" hidden></button>
             </header>
             <div id="box">
@@ -37,11 +38,11 @@
                 </div>
                 <div>
                     <ul id="moreInfo"></ul>
-                <div>
-                <div id="mapHolder">
+                    <div>
+                        <div id="mapHolder">
 
-                </div>
-            </div>
+                        </div>
+                    </div>
     </section>
 
     <section class='search'>
@@ -75,6 +76,15 @@
     </script>
     <script src="scripts/index.js"></script>
     <script src="scripts/install.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.20.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.20.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
 </body>
 
 </html>
