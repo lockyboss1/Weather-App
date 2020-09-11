@@ -50,7 +50,7 @@ function initCoords() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(currentLocation);
   } else {
-    //.innerHTML = "";
+    document.getElementById("box").style.display = "none";
   }
 }
 initCoords();
@@ -179,7 +179,7 @@ form.addEventListener("submit", e => {
         </figure>
       `;
       li.innerHTML = markup;
-      //saveLocationList(markup);
+      saveLocationList(markup);
       cities.appendChild(li);
     })
     .catch(() => {
@@ -193,14 +193,14 @@ form.addEventListener("submit", e => {
         console.log(i);
         var city = document.querySelector('.city');
         city.remove(i);
-        //localStorage.removeItem(i);
+        localStorage.removeItem("list_items", key(i));
       };
     }
   }
   removeWeatherResult();
 
   //localstorage function
-  /*function saveLocationList(add_item) {
+  function saveLocationList(add_item) {
     // parse existing storage key or string representation of empty array
     var existingEntries = JSON.parse(localStorage.getItem("list_items") || '[]');
 
@@ -212,7 +212,7 @@ form.addEventListener("submit", e => {
       // or tell user it's already there
       console.log(add_item + ' already exists')
     }
-  }*/
+  }
 
   msg.textContent = "";
   form.reset();
@@ -236,7 +236,7 @@ form.addEventListener("submit", e => {
 });
 
 //Loads the list of saved location.
-/*window.onload = function () {
+window.onload = function () {
   for (var i = 0; i < localStorage.length; i++) {
     let key = localStorage.key(i);
     let weatherdata = JSON.parse(localStorage.getItem(key));
@@ -248,11 +248,10 @@ form.addEventListener("submit", e => {
         li.innerHTML = weatherdata;
         li.style.display = 'grid';
         cities.appendChild(li);
-        //removeWeatherResult();
       })
     } else { //if nothing exist in storage, keep array empty
       weatherdata = [];
     }
   }
-}*/
+}
 
