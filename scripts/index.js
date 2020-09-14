@@ -50,7 +50,7 @@ function initCoords() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(currentLocation);
   } else {
-    document.getElementById("box").style.display = "none";
+    //
   }
 }
 initCoords();

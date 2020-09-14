@@ -1,15 +1,15 @@
 'use strict';
 
-const CACHE_NAME = 'static-cache-v6';
+const CACHE_NAME = 'static-cache-v8';
 const DATA_CACHE_NAME = 'data-cache-v1';
 
 //list of files to cache.
 const FILES_TO_CACHE = [
   //'/public/offline.html',
   '/',
-  '/public/styles/index.css',
-  '/public/scripts/index.js',
-  '/public/index.html',
+  '/styles/index.css',
+  '/scripts/index.js',
+  '/index.html',
 ];
 
 self.addEventListener('install', (evt) => {
