@@ -6,10 +6,9 @@ const DATA_CACHE_NAME = 'data-cache-v2';
 //list of files to cache.
 const FILES_TO_CACHE = [
   //'/public/offline.html',
-  '/',
-  '/styles/index.css',
-  '/scripts/index.js',
-  '/index.html',
+  'styles/index.css',
+  'scripts/index.js',
+  'index.html',
 ];
 
 self.addEventListener('install', (evt) => {
@@ -42,7 +41,7 @@ self.addEventListener('activate', (evt) => {
 
 self.addEventListener('fetch', (evt) => {
   console.log('[ServiceWorker] Fetch', evt.request.url);
-  if (evt.request.url.includes('/public/')) {
+  if (evt.request.url.includes('/')) {
     console.log('[Service Worker] Fetch (data)', evt.request.url);
     evt.respondWith(
         caches.open(DATA_CACHE_NAME).then((cache) => {
