@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="styles/index.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon_io/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="Weather PWA">
-    <meta name="theme-color" content="#2F3BA2" />
-    <link rel="apple-touch-icon" href="/icons/icon-152x152.png">
-    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <meta name="theme-color" content="#2F3BA2"/>
+    <link rel="apple-touch-icon" href="icons/icon-152x152.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
     <script src="https://kit.fontawesome.com/122e71b9ae.js" crossorigin="anonymous"></script>
 </head>
 
@@ -66,7 +66,7 @@
         //Register service worker.
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
+                navigator.serviceWorker.register('service-worker.js')
                     .then((reg) => {
                         console.log('Service worker registered.', reg);
                     });
